@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Recipe — RASA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="../shared.css">
+<link rel="stylesheet" href="./css/recipes.css">
+</head>
+<body>
+
+<!-- ====================== NAVBAR ====================== -->
+<nav id="navbar">
+  <a class="nav-logo" href="../index.html">RASA</a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About Us</a></li>
+    <li><a href="../products.html">Products</a></li>
+    <li><a href="recipes.html" class="active">Recipes</a></li>
+    <li><a href="../contact.html">Contact Us</a></li>
+    <li><a href="../purchase.html">Purchase</a></li>
+    <li><a class="nav-cta" href="https://blinkit.com" target="_blank">Buy on Blinkit</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav-overlay" id="mobileNav">
+  <a href="../index.html">Home</a>
+  <a href="../about.html">About Us</a>
+  <a href="../products.html">Products</a>
+  <a href="recipes.html" class="active">Recipes</a>
+  <a href="../contact.html">Contact Us</a>
+  <a href="../purchase.html">Purchase</a>
+  <div class="mobile-nav-divider"></div>
+  <a class="mobile-nav-cta" href="https://blinkit.com" target="_blank">Buy on Blinkit</a>
+</div>
+
+<!-- ====================== LOADING STATE ====================== -->
+<div id="detailLoader" class="detail-loading">
+  <div class="detail-loading-spinner"></div>
+  <p>Loading recipe…</p>
+</div>
+
+<!-- ====================== ERROR STATE ====================== -->
+<div id="detailError" style="display:none;" class="detail-error">
+  <h2>Recipe Not Found</h2>
+  <p>The recipe you're looking for doesn't exist or has been removed.</p>
+  <a class="btn-primary" href="recipes.html">← Back to Recipes</a>
+</div>
+
+<!-- ====================== PAGE CONTENT (hidden until JS populates) ====================== -->
+<div id="detailContent" style="display:none;">
+
+  <!-- ---- HERO ---- -->
+  <section class="detail-hero">
+    <div class="detail-hero-bg" id="detailHeroBg"></div>
+    <div class="detail-hero-overlay"></div>
+    <div class="detail-hero-icon" id="detailHeroIcon"></div>
+    <div class="detail-hero-content">
+      <div class="detail-hero-tag" id="detailHeroTag"></div>
+      <h1 class="detail-hero-title" id="detailHeroTitle"></h1>
+      <p class="detail-hero-subtitle" id="detailHeroSubtitle"></p>
+      <div class="detail-hero-stats">
+        <div class="detail-stat">
+          <span class="detail-stat-label">Cook Time</span>
+          <span class="detail-stat-value gold" id="statCookTime"></span>
+        </div>
+        <div class="detail-stat">
+          <span class="detail-stat-label">Prep Time</span>
+          <span class="detail-stat-value" id="statPrepTime"></span>
+        </div>
+        <div class="detail-stat">
+          <span class="detail-stat-label">Difficulty</span>
+          <span class="detail-stat-value" id="statDifficulty"></span>
+        </div>
+        <div class="detail-stat">
+          <span class="detail-stat-label">Serves</span>
+          <span class="detail-stat-value" id="statServings"></span>
+        </div>
+        <div class="detail-stat">
+          <span class="detail-stat-label">Calories</span>
+          <span class="detail-stat-value" id="statCalories"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- BREADCRUMB ---- -->
+  <div class="detail-breadcrumb">
+    <!-- Note: plain div nav, NOT id="navbar" — avoids conflict with sticky navbar -->
+    <div class="breadcrumb-nav" role="navigation" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="recipes.html">Recipes</a>
+      <span class="sep">/</span>
+      <span id="breadcrumbTitle"></span>
+    </div>
+  </div>
+
+  <!-- ---- MAIN BODY GRID ---- -->
+  <div class="detail-body">
+
+    <!-- ======== LEFT: MAIN CONTENT ======== -->
+    <main class="detail-main">
+
+      <!-- Description -->
+      <div class="fade-up" style="margin-bottom:60px;">
+        <div class="detail-section-label">About This Recipe</div>
+        <p class="detail-description" id="detailDescription"></p>
+      </div>
+
+      <!-- Cooking Steps -->
+      <div class="detail-steps fade-up">
+        <div class="detail-section-label">How to Cook</div>
+        <div id="detailSteps"></div>
+      </div>
+
+      <!-- Chef's Tips -->
+      <div class="detail-tips fade-up">
+        <div class="detail-section-label">Chef's Tips</div>
+        <div id="detailTips"></div>
+      </div>
+
+      <!-- Pairs With -->
+      <div class="fade-up">
+        <div class="detail-section-label">Pairs Well With</div>
+        <div class="pairs-list" id="detailPairs"></div>
+      </div>
+
+    </main>
+
+    <!-- ======== RIGHT: SIDEBAR ======== -->
+    <aside class="detail-sidebar">
+
+      <!-- Ingredients Card -->
+      <div class="detail-ingredients-card fade-up">
+        <div class="ingredients-card-header">
+          <span class="ingredients-card-title">Ingredients</span>
+          <!-- Servings scaler -->
+          <div class="servings-control" title="Adjust servings">
+            <button class="servings-btn" onclick="changeServings(-1)" aria-label="Reduce servings">−</button>
+            <span class="servings-val" id="servingsVal">4 servings</span>
+            <button class="servings-btn" onclick="changeServings(1)" aria-label="Increase servings">+</button>
+          </div>
+        </div>
+        <div class="ingredients-card-body">
+          <div id="detailIngredients"></div>
+        </div>
+      </div>
+
+      <!-- Quick Info -->
+      <div class="quick-info-card fade-up">
+        <div class="quick-info-card-title">At a Glance</div>
+        <div class="quick-info-row">
+          <span class="quick-info-label">Cook Time</span>
+          <span class="quick-info-value" id="qiCookTime"></span>
+        </div>
+        <div class="quick-info-row">
+          <span class="quick-info-label">Prep Time</span>
+          <span class="quick-info-value" id="qiPrepTime"></span>
+        </div>
+        <div class="quick-info-row">
+          <span class="quick-info-label">Total Time</span>
+          <span class="quick-info-value" id="qiTotalTime"></span>
+        </div>
+        <div class="quick-info-row">
+          <span class="quick-info-label">Difficulty</span>
+          <span class="quick-info-value highlight" id="qiDifficulty"></span>
+        </div>
+        <div class="quick-info-row">
+          <span class="quick-info-label">Calories</span>
+          <span class="quick-info-value" id="qiCalories"></span>
+        </div>
+        <div class="quick-info-row">
+          <span class="quick-info-label">RASA Blend</span>
+          <span class="quick-info-value highlight" id="qiBlend" style="font-size:0.75rem;"></span>
+        </div>
+      </div>
+
+      <!-- Buy Blend CTA -->
+      <div class="buy-blend-card fade-up">
+        <div class="buy-blend-eyebrow">Used in this recipe</div>
+        <div class="buy-blend-name" id="buyBlendName"></div>
+        <a class="buy-blend-btn" href="https://blinkit.com" target="_blank">Buy on Blinkit →</a>
+      </div>
+
+      <!-- Back to recipes -->
+      <div style="text-align:center; margin-top:24px;" class="fade-up">
+        <a href="recipes.html"
+           style="font-size:0.75rem; color:var(--text-brown); opacity:0.5; text-decoration:none; letter-spacing:0.1em; font-weight:500; text-transform:uppercase; transition:opacity 0.3s;"
+           onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5">
+          ← All Recipes
+        </a>
+      </div>
+
+    </aside>
+  </div><!-- end .detail-body -->
+
+  <!-- ---- MORE RECIPES NAV ---- -->
+  <section class="more-recipes-section fade-up">
+    <div class="more-recipes-label">More Recipes</div>
+    <div class="more-recipes-grid" id="moreRecipesGrid"></div>
+  </section>
+
+  <!-- ---- FOOTER ---- -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <a class="nav-logo" href="../index.html">RASA</a>
+        <p class="footer-tagline">Authentic preservative-free spice blends rooted in Indian tradition, crafted for modern kitchens.</p>
+        <div class="footer-socials">
+          <a class="social-icon" href="#" target="_blank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="1"/>
+                </svg>
+          </a>
+          <a class="social-icon" href="#" target="_blank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v6"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                  <path d="M10 9v12"/>
+                  <path d="M10 13a4 4 0 0 1 8 0"/>
+                </svg>
+          </a>
+          <a class="social-icon" href="#" target="_blank">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../products.html">Products</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+          <li><a href="../purchase.html">Purchase</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@rasa.in">hello@rasa.in</a></li>
+          <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+          <li><a>Mumbai, India</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact-col">
+        <h5>Get in Touch</h5>
+        <div class="footer-form-group">
+          <input type="text" placeholder="Your Name">
+        </div>
+        <div class="footer-form-group footer-phone-row">
+          <div style="flex:0 0 105px;">
+            <select class="footer-country-select">
+              <option>🇮🇳 +91</option><option>🇺🇸 +1</option><option>🇬🇧 +44</option>
+              <option>🇦🇺 +61</option><option>🇦🇪 +971</option><option>🇸🇬 +65</option>
+              <option>🇲🇾 +60</option><option>🇱🇰 +94</option><option>🇧🇩 +880</option>
+              <option>🇩🇪 +49</option><option>🇫🇷 +33</option><option>🇯🇵 +81</option>
+            </select>
+          </div>
+          <div style="flex:1; min-width:0;">
+            <input type="tel" placeholder="Mobile Number" style="width:100%;">
+          </div>
+        </div>
+        <div class="footer-form-group">
+          <textarea placeholder="Your message..."></textarea>
+        </div>
+        <button class="footer-submit-btn" onclick="handleFooterForm(this)">Send Message</button>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <span>RASA</span>. All rights reserved.</p>
+      <p class="footer-copy">Flavor. Made Simple.</p>
+    </div>
+  </footer>
+
+</div><!-- end #detailContent -->
+
+<!-- Scripts — order matters -->
+<script src="../shared.js"></script>
+<script src="./js/recipes-data.js"></script>
+<script src="./js/recipe-detail.js"></script>
+
+</body>
+</html>

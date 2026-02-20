@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Purchase — RASA</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <link rel="stylesheet" href="shared.css">
+        <style>
+            .purchase-intro {
+                background: var(--cream);
+                padding: 80px 60px 20px;
+                text-align: center;
+            }
+            .purchase-intro > * {
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .purchase-intro p {
+                font-size: 1rem;
+                color: var(--text-brown);
+                opacity: 0.7;
+                line-height: 1.8;
+                font-weight: 300;
+            }
+            .purchase-steps-section {
+                background: var(--cream);
+                padding: 60px 60px 80px;
+            }
+            .steps-wrapper {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+                max-width: 960px;
+                margin: 0 auto;
+                position: relative;
+            }
+            .steps-wrapper::before {
+                content: '';
+                position: absolute;
+                top: 80px;
+                left: 16%;
+                right: 16%;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            }
+            .step-card {
+                background: var(--beige);
+                border-radius: 2px;
+                padding: 48px 32px;
+                text-align: center;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .step-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 36px rgba(43, 30, 22, 0.1);
+            }
+            .step-num {
+                font-family: 'Playfair Display', serif;
+                font-size: 4rem;
+                font-weight: 700;
+                color: rgba(198, 166, 70, 0.2);
+                line-height: 1;
+                margin-bottom: 12px;
+            }
+            .step-icon {
+                font-size: 2.2rem;
+                margin-bottom: 16px;
+                display: block;
+            }
+            .step-name {
+                font-family: 'Playfair Display', serif;
+                font-size: 1.15rem;
+                color: var(--dark-brown);
+                margin-bottom: 10px;
+            }
+            .step-desc {
+                font-size: 0.82rem;
+                color: var(--text-brown);
+                opacity: 0.65;
+                line-height: 1.7;
+                font-weight: 300;
+            }
+            .purchase-cta-block {
+                background: var(--dark-brown);
+                margin: 0 60px 80px;
+                border-radius: 2px;
+                padding: 80px 60px;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .purchase-cta-block::before {
+                content: 'RASA';
+                position: absolute;
+                font-family: 'Playfair Display', serif;
+                font-size: 20rem;
+                font-weight: 700;
+                color: rgba(198, 166, 70, 0.03);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                white-space: nowrap;
+                pointer-events: none;
+            }
+            .purchase-cta-block h2 {
+                font-family: 'Playfair Display', serif;
+                font-size: 2.5rem;
+                color: var(--cream);
+                margin-bottom: 12px;
+                position: relative;
+            }
+            .purchase-cta-block h2 em {
+                color: var(--gold);
+                font-style: italic;
+            }
+            .purchase-cta-block p {
+                font-size: 0.9rem;
+                color: rgba(245, 235, 221, 0.5);
+                margin-bottom: 36px;
+                font-weight: 300;
+                position: relative;
+            }
+            .future-section {
+                padding: 60px 60px 100px;
+                text-align: center;
+            }
+            .future-badge {
+                display: inline-block;
+                background: rgba(198, 166, 70, 0.08);
+                border: 1px solid rgba(198, 166, 70, 0.2);
+                color: var(--gold);
+                font-size: 0.68rem;
+                font-weight: 600;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                padding: 6px 16px;
+                border-radius: 20px;
+                margin-bottom: 24px;
+            }
+            .future-section h3 {
+                font-family: 'Playfair Display', serif;
+                font-size: 2rem;
+                color: var(--dark-brown);
+                margin-bottom: 16px;
+            }
+            .future-section p {
+                font-size: 0.9rem;
+                color: var(--text-brown);
+                opacity: 0.6;
+                line-height: 1.8;
+                font-weight: 300;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            @media(max-width: 1024px) {
+                .purchase-intro,
+                .purchase-steps-section,
+                .future-section {
+                    padding-left: 24px;
+                    padding-right: 24px;
+                }
+                .steps-wrapper {
+                    grid-template-columns: 1fr;
+                    max-width: 400px;
+                }
+                .steps-wrapper::before {
+                    display: none;
+                }
+                .purchase-cta-block {
+                    margin: 0 24px 60px;
+                    padding: 60px 24px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <nav id="navbar">
+            <a class="nav-logo" href="index.html">
+                <img src="./logo.png" alt="Logo" class="nav-logo">
+            </a>
+            <div class="mobile-nav-overlay" id="mobileNav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="products.html">Products</a>
+                <a href="./recipes/recipes.html">Recipes</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="purchase.html" class="active">Purchase</a>
+                <div class="mobile-nav-divider"></div>
+                <a class="mobile-nav-cta" href="https://blinkit.com" target="_blank">Buy on Blinkit</a>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+                <li>
+                    <a href="products.html">Products</a>
+                </li>
+                <li>
+                    <a href="./recipes/recipes.html">Recipes</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+                <li>
+                    <a href="purchase.html" class="active">Purchase</a>
+                </li>
+                <li>
+                    <a class="nav-cta" href="https://blinkit.com" target="_blank">Buy on Blinkit</a>
+                </li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+
+        <div class="page-hero">
+            <div class="page-hero-bg"></div>
+            <div class="page-hero-content">
+                <div class="page-hero-tag">Where to Buy</div>
+                <h1 class="page-hero-title">Get Your<br><em>RASA Blends</em>
+                </h1>
+            </div>
+        </div>
+
+        <div class="purchase-intro">
+            <div class="section-eyebrow fade-up">Available Now</div>
+            <h2 class="section-title fade-up" style="text-align:center;">Exclusively on
+                <em>Blinkit</em>
+            </h2>
+            <p class="fade-up">RASA is currently available exclusively on Blinkit. Order from the comfort of your home and receive your spice blends delivered to your doorstep in minutes.</p>
+        </div>
+
+        <div class="purchase-steps-section">
+            <div class="steps-wrapper">
+                <div class="step-card fade-up">
+                    <div class="step-num">01</div>
+                    <span class="step-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M260-40q-24.75 0-42.37-17.63Q200-75.25 200-100v-760q0-24 18-42t42-18h438q24.75 0 42.38 17.62Q758-884.75 758-860v150q18 3 30 16.95 12 13.96 12 31.63V-587q0 19-12 33t-30 17v437q0 24.75-17.62 42.37Q722.75-40 698-40H260Zm0-60h438v-760H260v760Zm0 0v-760 760Zm240-89q9-9 9-21t-9-21q-9-9-21-9t-21 9q-9 9-9 21t9 21q9 9 21 9t21-9Z"/></svg>
+                    </span>
+                    <div class="step-name">Open Blinkit</div>
+                    <div class="step-desc">Download the Blinkit app or visit blinkit.com. Available on iOS and Android.</div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-num">02</div>
+                    <span class="step-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M796-121 533-384q-30 26-70 40.5T378-329q-108 0-183-75t-75-181q0-106 75-181t182-75q106 0 180.5 75T632-585q0 43-14 83t-42 75l264 262-44 44ZM377-389q81 0 138-57.5T572-585q0-81-57-138.5T377-781q-82 0-139.5 57.5T180-585q0 81 57.5 138.5T377-389Z"/></svg>
+                    </span>
+                    <div class="step-name">Search RASA</div>
+                    <div class="step-desc">Type "RASA" in the search bar to find our full range of 5 signature spice blends.</div>
+                </div>
+                <div class="step-card fade-up">
+                    <div class="step-num">03</div>
+                    <span class="step-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#000000"><path d="M236-102.21q-21-21.21-21-51T236.21-204q21.21-21 51-21T338-203.79q21 21.21 21 51T337.79-102q-21.21 21-51 21T236-102.21Zm400 0q-21-21.21-21-51T636.21-204q21.21-21 51-21T738-203.79q21 21.21 21 51T737.79-102q-21.21 21-51 21T636-102.21ZM235-741l110 228h288l125-228H235Zm-30-60h589.07q22.97 0 34.95 21 11.98 21-.02 42L694-495q-11 19-28.56 30.5T627-453H324l-56 104h491v60H277q-42 0-60.5-28t.5-63l64-118-152-322H51v-60h117l37 79Zm140 288h288-288Z"/></svg>
+                    </span>
+                    <div class="step-name">Order &amp; Enjoy</div>
+                    <div class="step-desc">Add to cart, checkout, and get ready to cook something truly extraordinary.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="purchase-cta-block fade-up">
+            <h2>Ready to
+                <em>Cook</em>?</h2>
+            <p>Delivered to your door in minutes.</p>
+            <a class="btn-primary" href="https://blinkit.com" target="_blank" style="font-size:0.85rem; padding:16px 48px; position:relative;">Buy RASA on Blinkit</a>
+        </div>
+
+        <div class="future-section">
+            <div class="future-badge fade-up">Coming Soon</div>
+            <h3 class="fade-up">Direct from RASA</h3>
+            <p class="fade-up">We're working on bringing you a direct shopping experience on rasa.in. Soon you'll be able to order, subscribe, and discover exclusive blends straight from our website.</p>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-top">
+                <div>
+                    <a class="nav-logo" href="index.html">
+                        <img src="./logo.png" alt="Logo" class="footer-logo">
+                    </a>
+                    <p class="footer-tagline">Authentic preservative-free spice blends rooted in Indian tradition, crafted for modern kitchens.</p>
+                    <div class="footer-socials">
+                        <a class="social-icon" href="#" target="_blank">
+                            <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <circle cx="17.5" cy="6.5" r="1"/>
+                            </svg>
+                        </a>
+                        <a class="social-icon" href="#" target="_blank">
+                            <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v6"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                                <path d="M10 9v12"/>
+                                <path d="M10 13a4 4 0 0 1 8 0"/>
+                            </svg>
+                        </a>
+                        <a class="social-icon" href="#" target="_blank">
+                            <svg width="22" height="22" viewbox="0 0 24 24" fill="none" stroke="#C6A75E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Explore</h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="products.html">Products</a>
+                        </li>
+                        <li>
+                            <a href="./recipes/recipes.html">Recipes</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="purchase.html">Purchase</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="mailto:hello@rasa.in">hello@rasa.in</a>
+                        </li>
+                        <li>
+                            <a href="tel:+919876543210">+91 98765 43210</a>
+                        </li>
+                        <li>
+                            <a>Mumbai, India</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-contact-col">
+                    <h5>Get in Touch</h5>
+                    <div class="footer-form-group">
+                        <input type="text" placeholder="Your Name">
+                    </div>
+                    <div class="footer-form-group footer-phone-row">
+                        <div style="flex:0 0 105px;">
+                            <select class="footer-country-select">
+                                <option value="+91">🇮🇳 +91</option>
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+44">🇬🇧 +44</option>
+                                <option value="+61">🇦🇺 +61</option>
+                                <option value="+971">🇦🇪 +971</option>
+                                <option value="+65">🇸🇬 +65</option>
+                                <option value="+60">🇲🇾 +60</option>
+                                <option value="+94">🇱🇰 +94</option>
+                                <option value="+880">🇧🇩 +880</option>
+                                <option value="+92">🇵🇰 +92</option>
+                                <option value="+49">🇩🇪 +49</option>
+                                <option value="+33">🇫🇷 +33</option>
+                                <option value="+81">🇯🇵 +81</option>
+                                <option value="+86">🇨🇳 +86</option>
+                            </select>
+                        </div>
+                        <div style="flex:1; min-width:0;">
+                            <input type="tel" placeholder="Mobile Number" style="width:100%;">
+                        </div>
+                    </div>
+                    <div class="footer-form-group">
+                        <textarea placeholder="Your message..."></textarea>
+                    </div>
+                    <button class="footer-submit-btn" onclick="handleFooterForm(this)">Send Message</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026
+                    <span>RASA</span>. All rights reserved.</p>
+                <p class="footer-copy">Flavor. Made Simple.</p>
+            </div>
+        </footer>
+        <script src="shared.js"></script>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "slug": "classic-chicken-curry",
+    "title": "Classic Chicken Curry",
+    "subtitle": "Monday Blues · Chicken Curry Blend",
+    "tag": "Chicken · Easy",
+    "cookTime": "40 min",
+    "prepTime": "15 min",
+    "totalTime": "55 min",
+    "difficulty": "Easy",
+    "servings": 4,
+    "calories": "320 kcal",
+    "spiceBlend": "RASA Monday Blues Chicken Curry",
+    "description": "A timeless weeknight classic. Rich, warming, and full of authentic Indian flavour. This recipe transforms everyday chicken into a deeply satisfying meal using RASA Monday Blues — a blend crafted from whole spices ground to perfection so you never have to guess the right balance.",
+    "cardDescription": "A timeless weeknight classic. Rich, warming, and full of authentic Indian flavour with RASA Monday Blues.",
+    "gradientClass": "rc-1",
+    "gradientStyle": "linear-gradient(135deg, #5A1A0A, #9A3A1A)",
+    "ImageUrl": "../Products/Product1.png",
+    "icon": "",
+    "ingredients": [
+      { "category": "Main", "items": ["750g chicken, cut into pieces", "2 medium onions, finely sliced", "3 ripe tomatoes, chopped", "1 packet RASA Monday Blues Chicken Curry blend"] },
+      { "category": "For the base", "items": ["4 tbsp oil or ghee", "1 tsp cumin seeds", "2 bay leaves", "1 tsp ginger-garlic paste"] },
+      { "category": "Finishing", "items": ["Salt to taste", "Fresh coriander, chopped", "2 tbsp cream (optional)", "Squeeze of lemon juice"] }
+    ],
+    "steps": [
+      { "step": 1, "title": "Prepare the Base", "description": "Heat oil or ghee in a heavy-bottomed pan over medium heat. Add cumin seeds and bay leaves. When they splutter, add sliced onions and sauté until golden brown — about 10–12 minutes. Patience here builds the flavour foundation.", "time": "12 min" },
+      { "step": 2, "title": "Build the Masala", "description": "Add ginger-garlic paste and cook for 2 minutes until raw aroma disappears. Add chopped tomatoes and cook until they break down into a thick paste, about 8 minutes. The mixture should pull away from the pan sides.", "time": "10 min" },
+      { "step": 3, "title": "Add RASA Blend", "description": "Add the entire RASA Monday Blues Chicken Curry blend. Stir well to coat the masala and cook the spices for 2 minutes on medium heat. You'll notice the oil beginning to separate — that's the signal your base is ready.", "time": "2 min" },
+      { "step": 4, "title": "Cook the Chicken", "description": "Add chicken pieces and mix thoroughly to coat with the masala. Sear on high heat for 3–4 minutes to seal the juices. Add 200ml warm water, stir, reduce heat to low, cover and simmer until chicken is cooked through.", "time": "18 min" },
+      { "step": 5, "title": "Finish & Serve", "description": "Check seasoning and add salt. Stir in cream if using for a richer gravy. Finish with fresh coriander and a squeeze of lemon. Rest for 5 minutes before serving with steamed rice or warm naan.", "time": "5 min" }
+    ],
+    "tips": [
+      "Use chicken on the bone for deeper flavour",
+      "Brown the onions properly — this is the most important step",
+      "If the curry is too thick, add a splash of warm water",
+      "Tastes even better the next day as the spices develop"
+    ],
+    "pairsWith": ["Steamed basmati rice", "Butter naan", "Jeera rice", "Lachha paratha"]
+  },
+  {
+    "id": 2,
+    "slug": "traditional-ghee-roast",
+    "title": "Traditional Ghee Roast",
+    "subtitle": "Two's a Date · Chicken Ghee Roast Blend",
+    "tag": "Chicken · Medium",
+    "cookTime": "50 min",
+    "prepTime": "20 min",
+    "totalTime": "70 min",
+    "difficulty": "Medium",
+    "servings": 4,
+    "calories": "410 kcal",
+    "spiceBlend": "RASA Two's a Date Chicken Ghee Roast",
+    "description": "The Mangalorean classic that belongs on every food lover's table. Tangy, buttery, and unforgettable — this dish is a celebration of coastal Indian cooking. RASA Two's a Date blend brings together Byadgi chillies, tamarind, and warming spices, giving you the true Ghee Roast experience without the hours of grinding.",
+    "cardDescription": "The Mangalorean classic that belongs on every food lover's table. Tangy, buttery, unforgettable.",
+    "gradientClass": "rc-2",
+    "gradientStyle": "linear-gradient(135deg, #1A3A0A, #3A6A1A)",
+    "ImageUrl": "../Products/Product2.png",
+    "icon": "",
+    "ingredients": [
+      { "category": "Main", "items": ["750g chicken, bone-in pieces", "1 packet RASA Two's a Date Chicken Ghee Roast blend", "3–4 tbsp ghee (pure, good quality)"] },
+      { "category": "Aromatics", "items": ["1 large onion, finely chopped", "1 tsp ginger-garlic paste", "10–12 curry leaves"] },
+      { "category": "Souring Agent", "items": ["1 tbsp tamarind paste or 2 tbsp lemon juice"] },
+      { "category": "Finishing", "items": ["Salt to taste", "1 tsp jaggery or sugar (balances the tang)", "Fresh coriander to garnish"] }
+    ],
+    "steps": [
+      { "step": 1, "title": "Marinate the Chicken", "description": "Mix chicken pieces with half the RASA Ghee Roast blend, 1 tsp ginger-garlic paste, and a pinch of salt. Let marinate for at least 30 minutes — overnight in the fridge is even better for deeper flavour penetration.", "time": "30 min" },
+      { "step": 2, "title": "Sear the Chicken", "description": "Heat 2 tbsp ghee in a wide, heavy pan over high heat. Sear the marinated chicken pieces until charred on the outside — about 4–5 minutes per side. Remove and set aside. This searing step is what makes the Ghee Roast distinct.", "time": "10 min" },
+      { "step": 3, "title": "Build the Roast Masala", "description": "In the same pan, add remaining ghee. Add curry leaves and chopped onions, sauté until golden. Add remaining RASA blend, tamarind paste, and jaggery. Cook on medium heat for 5 minutes until oil separates and masala deepens in colour.", "time": "10 min" },
+      { "step": 4, "title": "Coat & Roast", "description": "Return seared chicken to the pan. Toss well to coat every piece with the masala. Cook uncovered on medium-low heat, stirring occasionally. The key is to roast — no water added. The ghee and masala should coat and cling to the chicken.", "time": "15 min" },
+      { "step": 5, "title": "Rest & Serve", "description": "When chicken is cooked and the masala has dried on beautifully, remove from heat. Drizzle with a final teaspoon of ghee for gloss. Rest for 5 minutes. Garnish with fresh coriander and serve immediately.", "time": "5 min" }
+    ],
+    "tips": [
+      "Quality ghee is non-negotiable — it's the soul of this dish",
+      "Do not add water — this is a dry roast, not a curry",
+      "Basting with ghee midway through adds incredible richness",
+      "Serve immediately while the masala is still crisp on the outside"
+    ],
+    "pairsWith": ["Neer dosa", "Appam", "Sannas", "Plain rice", "Roti"]
+  },
+  {
+    "id": 3,
+    "slug": "biryani-perfection",
+    "title": "Biryani Perfection",
+    "subtitle": "Stress-Free · Chicken Biryani Blend",
+    "tag": "Rice · Medium",
+    "cookTime": "90 min",
+    "prepTime": "30 min",
+    "totalTime": "120 min",
+    "difficulty": "Medium",
+    "servings": 6,
+    "calories": "520 kcal",
+    "spiceBlend": "RASA Stress-Free Chicken Biryani",
+    "description": "The king of Indian rice dishes, finally made achievable. Fragrant, layered, and worthy of any celebration — this biryani uses RASA Stress-Free blend to take the guesswork out of the spice equation. Every grain of rice is perfumed with whole spices; every bite of chicken is deeply marinated. The dum method locks in steam for that signature restaurant finish.",
+    "cardDescription": "Fragrant rice layered with perfectly spiced chicken. Worthy of any celebration using RASA Biryani blend.",
+    "gradientClass": "rc-3",
+    "gradientStyle": "linear-gradient(135deg, #0A1A4A, #1A3A7A)",
+    "ImageUrl": "../Products/Product3.png",
+    "icon": "",
+    "ingredients": [
+      { "category": "For the Rice", "items": ["2 cups basmati rice, soaked 30 min", "Whole spices: 2 bay leaves, 4 cloves, 2 cardamom", "1 tbsp salt", "Water to boil"] },
+      { "category": "For the Chicken", "items": ["750g chicken pieces", "1 packet RASA Stress-Free Chicken Biryani blend", "200g full-fat yoghurt", "2 tbsp oil"] },
+      { "category": "For Layering", "items": ["2 large onions, thinly sliced and fried crisp", "Large handful fresh mint leaves", "Large handful fresh coriander", "A pinch of saffron soaked in 2 tbsp warm milk"] },
+      { "category": "For Dum", "items": ["2 tbsp ghee", "Dough or foil to seal the pot"] }
+    ],
+    "steps": [
+      { "step": 1, "title": "Marinate the Chicken", "description": "Combine chicken with yoghurt, RASA Biryani blend, oil, and salt. Mix thoroughly until every piece is well coated. Marinate for minimum 2 hours — overnight is ideal. The yoghurt tenderises the meat while the spices penetrate deeply.", "time": "120 min" },
+      { "step": 2, "title": "Fry the Onions", "description": "Slice onions thinly and fry in hot oil until deep golden brown and crispy — this takes patience, about 20 minutes. These caramelised onions (birista) are the heart of biryani flavour. Drain and set aside on paper towels.", "time": "20 min" },
+      { "step": 3, "title": "Parboil the Rice", "description": "Boil water with whole spices and salt. Add soaked, drained rice and cook until 70% done — the rice should still have a bite in the centre. Drain immediately. This partial cooking means it will finish perfectly in the dum stage.", "time": "8 min" },
+      { "step": 4, "title": "Cook the Chicken Layer", "description": "In a heavy pot, cook marinated chicken over high heat for 10 minutes, stirring. The marinade will coat and chicken will be 80% cooked. Spread into an even layer at the bottom of the pot.", "time": "12 min" },
+      { "step": 5, "title": "Layer the Biryani", "description": "Spread parboiled rice over the chicken in an even layer. Scatter fried onions, fresh mint, and coriander over the rice. Drizzle saffron milk in thin lines across the top. Add ghee around the edges of the pot.", "time": "5 min" },
+      { "step": 6, "title": "Dum Cooking", "description": "Seal the pot tightly with dough or foil, then the lid. Cook on high heat for 5 minutes, then reduce to the lowest possible heat. Cook for 25 minutes. Rest for 15 minutes before opening. Do not peek during dum — the steam is what finishes the biryani.", "time": "45 min" }
+    ],
+    "tips": [
+      "Use aged basmati rice — it gives longer, separate grains",
+      "Never rush the dum — low heat and patience are everything",
+      "Add a tawa (flat pan) under the pot to diffuse heat on low flame",
+      "The saffron milk is not optional — it's what gives biryani its identity"
+    ],
+    "pairsWith": ["Raita (curd with cucumber)", "Mirchi ka salan", "Shorba", "Sliced onions with lemon"]
+  },
+  {
+    "id": 4,
+    "slug": "spiced-baked-fish",
+    "title": "Spiced Baked Fish",
+    "subtitle": "Thurs-a-Baked · Baked Fish Blend",
+    "tag": "Fish · Easy",
+    "cookTime": "30 min",
+    "prepTime": "10 min",
+    "totalTime": "40 min",
+    "difficulty": "Easy",
+    "servings": 2,
+    "calories": "280 kcal",
+    "spiceBlend": "RASA Thurs-a-Baked Baked Fish",
+    "description": "Delicate fish kissed with coastal spices. Light, healthy, and extraordinary in flavour — this recipe proves that great cooking doesn't have to be complicated. RASA Thurs-a-Baked blend is formulated specifically for fish: delicate enough not to overpower, complex enough to make every bite interesting. Perfect for a Thursday dinner that feels effortless.",
+    "cardDescription": "Delicate fish kissed with coastal spices. Light, healthy, and extraordinary in flavour. Perfect for any weekday.",
+    "gradientClass": "rc-4",
+    "gradientStyle": "linear-gradient(135deg, #4A2A0A, #7A4A1A)",
+    "ImageUrl": "../Products/Product5.png",
+    "icon": "",
+    "ingredients": [
+      { "category": "Main", "items": ["4 fish fillets (pomfret, basa, or salmon)", "1 packet RASA Thurs-a-Baked Baked Fish blend", "2 tbsp olive oil or melted butter"] },
+      { "category": "Marinade Extras", "items": ["Juice of 1 lemon", "2 tsp ginger-garlic paste", "Salt to taste"] },
+      { "category": "For Baking", "items": ["Lemon slices", "Fresh dill or coriander sprigs", "Foil or parchment paper"] }
+    ],
+    "steps": [
+      { "step": 1, "title": "Make the Marinade", "description": "In a bowl, combine RASA Thurs-a-Baked blend with olive oil, lemon juice, ginger-garlic paste, and salt. Mix into a paste. It should be spreadable — if too thick, add a touch more oil.", "time": "5 min" },
+      { "step": 2, "title": "Coat the Fish", "description": "Pat fish fillets dry with paper towels — this ensures the marinade sticks and the fish doesn't steam. Coat each fillet generously on both sides with the spice paste. Let rest for 10 minutes at room temperature.", "time": "10 min" },
+      { "step": 3, "title": "Prepare for Baking", "description": "Preheat oven to 200°C (fan 180°C). Line a baking tray with foil or parchment. Place marinated fillets on the tray. Lay lemon slices on top and tuck dill or coriander sprigs around the fish.", "time": "5 min" },
+      { "step": 4, "title": "Bake to Perfection", "description": "Bake for 18–22 minutes depending on the thickness of the fillets. The fish is done when it flakes easily with a fork and the edges are lightly golden. For a charred finish, switch to grill mode for the final 3 minutes.", "time": "22 min" },
+      { "step": 5, "title": "Rest & Plate", "description": "Remove from oven and rest for 3 minutes. Serve on warm plates with a squeeze of fresh lemon. The fish should be moist inside with a slightly caramelised spice crust on the outside.", "time": "3 min" }
+    ],
+    "tips": [
+      "Pat the fish completely dry before applying marinade",
+      "Don't overcook — fish continues cooking after removal from oven",
+      "Thicker fillets like salmon may need 5 extra minutes",
+      "Baking in foil parcels (en papillote) intensifies the flavour"
+    ],
+    "pairsWith": ["Saffron rice", "Garlic naan", "Green salad", "Lemon butter sauce", "Mashed potato"]
+  },
+  {
+    "id": 5,
+    "slug": "sunday-roast-delight",
+    "title": "Sunday Roast Delight",
+    "subtitle": "Friyay · Chicken Roast Blend",
+    "tag": "Chicken · Easy",
+    "cookTime": "60 min",
+    "prepTime": "15 min",
+    "totalTime": "75 min",
+    "difficulty": "Easy",
+    "servings": 4,
+    "calories": "380 kcal",
+    "spiceBlend": "RASA Friyay Chicken Roast",
+    "description": "The ideal weekend showstopper. Bold, celebratory roast flavours that deserve a long table, good company, and even better conversation. RASA Friyay Chicken Roast is made for exactly this moment — a blend that punches above its weight and makes the whole kitchen smell incredible from the moment it hits the heat.",
+    "cardDescription": "The ideal Sunday showstopper. Bold roast flavours that make the whole family come to the table.",
+    "gradientClass": "rc-5",
+    "gradientStyle": "linear-gradient(135deg, #4A0A1A, #8A1A3A)",
+    "ImageUrl": "../Products/Product4.png",
+    "icon": "",
+    "ingredients": [
+      { "category": "Main", "items": ["1 whole chicken (1.5–2kg) or 8 bone-in pieces", "1 packet RASA Friyay Chicken Roast blend", "3 tbsp oil or softened butter"] },
+      { "category": "Aromatics", "items": ["1 whole garlic bulb, halved crosswise", "2 sprigs fresh rosemary", "1 lemon, quartered", "2 onions, roughly chopped"] },
+      { "category": "For the Tray", "items": ["2 carrots, roughly chopped", "2 potatoes, cubed", "150ml chicken stock or water"] }
+    ],
+    "steps": [
+      { "step": 1, "title": "Prepare the Marinade", "description": "Combine RASA Friyay blend with oil (or softened butter for richness). Mix into a paste. If using a whole chicken, work the marinade under the skin directly onto the breast meat — this ensures flavour penetration. Season generously with salt.", "time": "10 min" },
+      { "step": 2, "title": "Marinate", "description": "Coat the entire chicken or pieces thoroughly with the marinade. Place in a roasting tray with the garlic halves, lemon quarters, and rosemary tucked around it. For best results, marinate overnight in the fridge uncovered — the dry air helps crisp the skin.", "time": "60 min" },
+      { "step": 3, "title": "Prepare the Tray", "description": "Preheat oven to 220°C (fan 200°C). Scatter chopped carrots and potatoes in the base of the roasting tray. Pour stock or water into the tray — this creates steam that bastes the chicken as it cooks and gives you incredible roasting juices.", "time": "5 min" },
+      { "step": 4, "title": "Roast", "description": "Place chicken on top of the vegetables. Roast at 220°C for 20 minutes for skin colour, then reduce to 180°C and continue for 40 minutes (or until juices run clear). Baste every 20 minutes with the tray juices. For pieces, 45 minutes total at 200°C.", "time": "60 min" },
+      { "step": 5, "title": "Rest & Carve", "description": "This is the most important step — rest the chicken for 15 minutes before carving. Tented loosely with foil, the juices redistribute throughout the meat. Meanwhile, collect the tray drippings to make a simple gravy by reducing with a splash of stock.", "time": "15 min" }
+    ],
+    "tips": [
+      "Resting is not optional — it's what keeps the chicken juicy",
+      "Butter under the skin gives the most flavourful result",
+      "A meat thermometer at 74°C internal temperature = perfect doneness",
+      "Use the tray drippings to make the most incredible gravy"
+    ],
+    "pairsWith": ["Roasted potatoes", "Steamed vegetables", "Yorkshire pudding", "Mint chutney", "Garlic bread"]
+  }
+]
