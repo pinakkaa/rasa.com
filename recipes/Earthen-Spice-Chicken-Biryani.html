@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Earthen Spice Chicken Biryani — RASA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── BRAND TOKENS (exact from shared.css) ─────────── */
+:root {
+  --gold:       #C6A646;
+  --gold-light: #D4B96A;
+  --deep-brown: #5A3E2B;
+  --cream:      #F5EBDD;
+  --beige:      #E8D8C3;
+  --dark-brown: #2B1E16;
+  --text-brown: #3D2A1E;
+}
+
+/* ── RESET ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--text-brown);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Paper texture — same as shared.css */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* ── SHARED TYPOGRAPHY (mirrors shared.css) ────────── */
+.section-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--dark-brown);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.gold-line { width: 50px; height: 1px; background: var(--gold); margin-bottom: 28px; }
+
+/* ── SCROLL REVEAL (same as site) ──────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.fade-up.visible { opacity: 1; transform: none; }
+.fade-up.d1 { transition-delay: 0.08s; }
+.fade-up.d2 { transition-delay: 0.16s; }
+.fade-up.d3 { transition-delay: 0.24s; }
+.fade-up.d4 { transition-delay: 0.32s; }
+.fade-up.d5 { transition-delay: 0.40s; }
+
+/* ── BUTTONS (from shared.css) ─────────────────────── */
+.btn-primary {
+  background: var(--gold);
+  color: var(--dark-brown);
+  padding: 14px 32px;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(198,166,70,0.3);
+}
+.btn-dark {
+  background: var(--dark-brown);
+  color: var(--cream);
+  padding: 14px 32px;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-dark:hover {
+  background: var(--deep-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(43,30,22,0.25);
+}
+
+
+/* ══════════════════════════════════════════════════════
+   §1  HERO
+══════════════════════════════════════════════════════ */
+.recipe-hero {
+  background: var(--dark-brown);
+  padding: 80px 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+.recipe-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.recipe-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 75% 40%, rgba(198,166,70,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.recipe-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+  align-items: end;
+}
+
+/* Left — text */
+.recipe-hero-text { padding-bottom: 64px; }
+
+.recipe-hero-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.recipe-hero-tag::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.recipe-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.08;
+  margin-bottom: 28px;
+}
+.recipe-hero-title em { color: var(--gold); font-style: italic; font-weight: 400; }
+
+.recipe-hero-desc {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(245,235,221,0.55);
+  line-height: 1.9;
+  max-width: 480px;
+  margin-bottom: 48px;
+}
+
+.recipe-hero-stats {
+  display: flex;
+  gap: 40px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(198,166,70,0.12);
+  flex-wrap: wrap;
+}
+.hero-stat-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(198,166,70,0.55);
+  display: block;
+  margin-bottom: 5px;
+}
+.hero-stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+/* Right — product visual */
+.recipe-hero-visual {
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+}
+.recipe-hero-card {
+  width: 260px;
+  background: var(--deep-brown);
+  border-radius: 2px 2px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+.recipe-hero-card-top {
+  height: 220px;
+  background: linear-gradient(160deg, #3D2010 0%, #1A0E08 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.recipe-hero-card-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 20%, rgba(198,166,70,0.1) 0%, transparent 60%);
+}
+.recipe-hero-card-emoji {
+  font-size: 5.5rem;
+  opacity: 0.18;
+  filter: blur(1px);
+  position: absolute;
+  bottom: -12px;
+  right: -8px;
+}
+.recipe-hero-card-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--gold);
+  color: var(--dark-brown);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 2px;
+  z-index: 2;
+}
+/* Steam lines */
+.steam-wrap { position: absolute; top: 18%; left: 50%; transform: translateX(-50%); display: flex; gap: 16px; z-index: 1; }
+.steam-strand {
+  width: 1.5px;
+  height: 44px;
+  background: linear-gradient(to top, rgba(198,166,70,0.3), transparent);
+  border-radius: 2px;
+  animation: steamrise 3s ease-in-out infinite;
+}
+.steam-strand:nth-child(2) { animation-delay: 0.8s; height: 56px; }
+.steam-strand:nth-child(3) { animation-delay: 1.6s; height: 36px; }
+@keyframes steamrise {
+  0%,100% { opacity: 0; transform: scaleY(0.3) translateY(8px); }
+  50%      { opacity: 1; transform: scaleY(1)   translateY(-8px); }
+}
+
+.recipe-hero-card-body {
+  padding: 18px 20px 22px;
+  background: var(--deep-brown);
+}
+.recipe-hero-card-eyebrow {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(198,166,70,0.5);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.recipe-hero-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.35;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   CONTENT WRAPPER
+══════════════════════════════════════════════════════ */
+.recipe-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* Section spacing */
+.recipe-section {
+  padding: 80px 0;
+  border-bottom: 1px solid rgba(90,62,43,0.1);
+}
+.recipe-section:last-child { border-bottom: none; }
+
+
+/* ══════════════════════════════════════════════════════
+   §2  INGREDIENTS
+══════════════════════════════════════════════════════ */
+.ing-card {
+  background: var(--beige);
+  border-radius: 2px;
+  padding: 44px 48px;
+  border: 1px solid rgba(198,166,70,0.12);
+}
+
+.ing-group-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-brown);
+  opacity: 0.5;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.ing-group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(90,62,43,0.12);
+}
+
+.ing-row {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  row-gap: 28px;
+}
+
+.ing-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+.ing-item-circle {
+  width: 82px;
+  height: 82px;
+  background: var(--cream);
+  border: 1.5px solid rgba(198,166,70,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.ing-item-circle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 33% 33%, rgba(255,255,255,0.45), transparent 55%);
+  pointer-events: none;
+}
+.ing-item:hover .ing-item-circle {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(90,62,43,0.12);
+}
+.ing-item-name {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--text-brown);
+  text-align: center;
+  max-width: 74px;
+  line-height: 1.35;
+  opacity: 0.75;
+}
+
+.ing-plus {
+  font-size: 0.9rem;
+  color: var(--gold);
+  opacity: 0.45;
+  align-self: center;
+  margin-bottom: 32px;
+  padding: 0 8px;
+  font-weight: 300;
+  flex-shrink: 0;
+}
+
+.ing-divider {
+  margin: 36px 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ing-divider::before, .ing-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(90,62,43,0.1);
+}
+.ing-divider-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--deep-brown);
+  opacity: 0.65;
+  white-space: nowrap;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   §3  STEPS
+══════════════════════════════════════════════════════ */
+.steps-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 0 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(90,62,43,0.08);
+  position: relative;
+}
+.step-row:last-child { border-bottom: none; padding-bottom: 0; }
+.step-row:first-child { padding-top: 0; }
+
+/* Vertical connector */
+.step-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 29px;
+  top: 76px;
+  bottom: 0;
+  width: 1px;
+  background: rgba(198,166,70,0.14);
+}
+
+.step-num-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+}
+.step-badge {
+  width: 46px;
+  height: 46px;
+  background: var(--dark-brown);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(198,166,70,0.2);
+}
+
+.step-body { padding-top: 12px; }
+.step-body-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-brown);
+  margin-bottom: 10px;
+}
+.step-body-text {
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: var(--text-brown);
+  line-height: 1.85;
+  opacity: 0.85;
+}
+.step-body-text + .step-body-text { margin-top: 8px; }
+
+/* Quantity cards */
+.step-variants {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+.step-variant {
+  background: var(--beige);
+  border: 1px solid rgba(198,166,70,0.15);
+  border-radius: 2px;
+  padding: 13px 16px;
+}
+.step-variant-qty {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--dark-brown);
+  margin-bottom: 4px;
+}
+.step-variant-detail {
+  font-size: 0.75rem;
+  color: var(--text-brown);
+  font-weight: 300;
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+/* Time chips */
+.step-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.step-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--cream);
+  border: 1px solid rgba(198,166,70,0.18);
+  border-radius: 2px;
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  color: var(--text-brown);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.step-chip strong { color: var(--dark-brown); font-weight: 600; }
+
+
+/* ══════════════════════════════════════════════════════
+   §4  CHEF'S TIP
+══════════════════════════════════════════════════════ */
+.tip-block {
+  background: var(--beige);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 2px 2px 0;
+  padding: 36px 44px;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0 28px;
+  align-items: flex-start;
+}
+.tip-icon-wrap {
+  width: 56px;
+  height: 56px;
+  background: var(--cream);
+  border: 1.5px solid rgba(198,166,70,0.22);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.tip-content {}
+.tip-eyebrow {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.tip-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--dark-brown);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.tip-body {
+  font-size: 0.83rem;
+  font-weight: 300;
+  color: var(--text-brown);
+  line-height: 1.9;
+  opacity: 0.85;
+}
+.tip-body strong {
+  display: block;
+  font-weight: 600;
+  color: var(--dark-brown);
+  font-size: 0.79rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  margin-top: 16px;
+  opacity: 1;
+}
+.tip-body strong:first-child { margin-top: 0; }
+
+
+/* ══════════════════════════════════════════════════════
+   §5  LIFESTYLE IMAGE
+══════════════════════════════════════════════════════ */
+.lifestyle-wrap {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 24px 72px rgba(43,30,22,0.12);
+}
+.lifestyle-img-block {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(140deg, var(--dark-brown) 0%, var(--deep-brown) 50%, #7A4E20 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.lifestyle-img-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 35%, rgba(198,166,70,0.07) 0%, transparent 65%);
+}
+.lifestyle-bg-icon {
+  font-size: 8rem;
+  opacity: 0.06;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -54%);
+  filter: blur(3px);
+  pointer-events: none;
+}
+/* Swap note — remove in production */
+.lifestyle-swap-note {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(43,30,22,0.55);
+  color: rgba(245,235,221,0.35);
+  font-size: 0.64rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 2px;
+  border: 1px dashed rgba(245,235,221,0.12);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.lifestyle-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(43,30,22,0.72) 0%, transparent 52%);
+  display: flex;
+  align-items: flex-end;
+  padding: 36px 44px;
+}
+.lifestyle-caption-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(245,235,221,0.88);
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.lifestyle-caption-sub {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(198,166,70,0.65);
+}
+
+
+/* ══════════════════════════════════════════════════════
+   §6  PRODUCT SHOWCASE
+══════════════════════════════════════════════════════ */
+.showcase-block {
+  background: var(--dark-brown);
+  border-radius: 2px;
+  padding: 72px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.showcase-img-col {}
+.showcase-product-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--deep-brown);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.showcase-product-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 18%, rgba(198,166,70,0.1) 0%, transparent 60%);
+}
+.showcase-product-emoji {
+  font-size: 7rem;
+  opacity: 0.1;
+  filter: blur(3px);
+}
+.showcase-steam-wrap { position: absolute; top: 7%; left: 50%; transform: translateX(-50%); display: flex; gap: 18px; }
+.showcase-steam-wrap .steam-strand {
+  background: linear-gradient(to top, rgba(198,166,70,0.22), transparent);
+}
+.showcase-round-badge {
+  position: absolute;
+  top: 22px;
+  right: -14px;
+  width: 70px;
+  height: 70px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark-brown);
+  line-height: 1.5;
+  z-index: 2;
+}
+
+/* Showcase text column */
+.showcase-text-col {}
+.showcase-text-col .section-eyebrow { color: rgba(198,166,70,0.6); }
+.showcase-text-col .section-title { color: var(--cream); }
+.showcase-text-col .section-title em { color: var(--gold); }
+.showcase-text-col .gold-line { opacity: 0.35; }
+
+.showcase-desc {
+  font-size: 0.84rem;
+  font-weight: 300;
+  color: rgba(245,235,221,0.48);
+  line-height: 1.9;
+  margin-bottom: 36px;
+  max-width: 340px;
+}
+.showcase-specs { display: flex; flex-direction: column; margin-bottom: 40px; }
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(198,166,70,0.08);
+}
+.spec-row:last-child { border-bottom: none; }
+.spec-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245,235,221,0.3);
+}
+.spec-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.92rem;
+  color: rgba(245,235,221,0.72);
+}
+
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .recipe-hero { padding: 60px 24px 0; }
+  .recipe-hero-inner { grid-template-columns: 1fr; }
+  .recipe-hero-text { padding-bottom: 48px; }
+  .recipe-hero-visual { display: none; }
+  .recipe-body { padding: 0 24px; }
+  .ing-card { padding: 32px 28px; }
+  .tip-block { padding: 28px 32px; }
+  .showcase-block { grid-template-columns: 1fr; gap: 48px; padding: 52px 40px; }
+  .showcase-product-img { aspect-ratio: 4/3; }
+  .showcase-round-badge { display: none; }
+}
+@media (max-width: 640px) {
+  .recipe-hero { padding: 48px 20px 0; }
+  .recipe-hero-stats { gap: 24px; }
+  .recipe-body { padding: 0 20px; }
+  .recipe-section { padding: 60px 0; }
+  .ing-card { padding: 24px 20px; }
+  .ing-item-circle { width: 66px; height: 66px; font-size: 1.6rem; }
+  .ing-item-name { font-size: 0.62rem; max-width: 60px; }
+  .step-row { grid-template-columns: 50px 1fr; gap: 0 20px; }
+  .step-badge { width: 40px; height: 40px; font-size: 0.9rem; }
+  .step-row:not(:last-child)::after { left: 24px; }
+  .step-variants { grid-template-columns: 1fr; }
+  .tip-block { grid-template-columns: 1fr; gap: 16px; padding: 24px 22px; }
+  .tip-icon-wrap { width: 46px; height: 46px; font-size: 1.25rem; }
+  .lifestyle-overlay { padding: 24px 28px; }
+  .lifestyle-caption-text { font-size: 1rem; }
+  .showcase-block { padding: 40px 24px; }
+  .ing-plus { padding: 0 4px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     §1  HERO
+══════════════════════════════════ -->
+<div class="recipe-hero">
+  <div class="recipe-hero-bg"></div>
+  <div class="recipe-hero-inner">
+
+    <div class="recipe-hero-text">
+      <div class="recipe-hero-tag fade-up">Signature Recipe</div>
+      <h1 class="recipe-hero-title fade-up d1">
+        RASA – Earthen Spice<br><em>Chicken Biryani</em>
+      </h1>
+      <p class="recipe-hero-desc fade-up d2">
+        A celebration in every grain. Slow-simmered chicken layered with fragrant rice and the deep warmth of the RASA blend — the soul of a traditional earthen pot, made effortless.
+      </p>
+      <div class="recipe-hero-stats fade-up d3">
+        <div>
+          <span class="hero-stat-label">Prep Time</span>
+          <span class="hero-stat-value">30 min</span>
+        </div>
+        <div>
+          <span class="hero-stat-label">Cook Time</span>
+          <span class="hero-stat-value">55–90 min</span>
+        </div>
+        <div>
+          <span class="hero-stat-label">Serves</span>
+          <span class="hero-stat-value">4–6 people</span>
+        </div>
+        <div>
+          <span class="hero-stat-label">Difficulty</span>
+          <span class="hero-stat-value">Simple</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="recipe-hero-visual">
+      <div class="recipe-hero-card fade-up d2">
+        <div class="recipe-hero-card-top">
+          <div class="steam-wrap">
+            <div class="steam-strand"></div>
+            <div class="steam-strand"></div>
+            <div class="steam-strand"></div>
+          </div>
+          <div class="recipe-hero-card-badge">RASA Blend</div>
+          <span class="recipe-hero-card-emoji">🫕</span>
+        </div>
+        <div class="recipe-hero-card-body">
+          <div class="recipe-hero-card-eyebrow">Earthen Spice</div>
+          <div class="recipe-hero-card-name">Chicken Biryani</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════
+     BODY
+══════════════════════════════════ -->
+<div class="recipe-body">
+
+  <!-- §2  INGREDIENTS -->
+  <div class="recipe-section">
+    <div class="section-eyebrow fade-up">Ingredients</div>
+    <h2 class="section-title fade-up d1">What you will <em>need</em></h2>
+    <div class="gold-line fade-up d2"></div>
+
+    <div class="ing-card fade-up d2">
+
+      <div class="ing-group-label">Main Ingredients</div>
+      <div class="ing-row">
+        <div class="ing-item">
+          <div class="ing-item-circle">
+            <img src="./Icons/onion.png" alt="" height="50" width="50">
+          </div>
+          <div class="ing-item-name">Sliced Onions</div>
+        </div>
+        <span class="ing-plus">+</span>
+        <div class="ing-item">
+          <div class="ing-item-circle">
+            <img src="./Icons/tomatoes.png" alt="" height="50" width="50">
+          </div>
+          <div class="ing-item-name">Diced Tomatoes</div>
+        </div>
+        <span class="ing-plus">+</span>
+        <div class="ing-item">
+          <div class="ing-item-circle">
+            <img src="./Icons/garlic.png" alt="" height="50" width="50">
+          </div>
+          <div class="ing-item-name">Ginger Garlic Paste</div>
+        </div>
+        <span class="ing-plus">+</span>
+        <div class="ing-item">
+          <div class="ing-item-circle">
+            <img src="./Icons/Coriander.png" alt="" height="50" width="50">
+          </div>
+          <div class="ing-item-name">Chopped Coriander</div>
+        </div>
+        <span class="ing-plus">+</span>
+        <div class="ing-item">
+          <div class="ing-item-circle">
+            <img src="./Icons/Mint-Leaves.png" alt="" height="50" width="50">
+          </div>
+          <div class="ing-item-name">Chopped Mint Leaves</div>
+        </div>
+      </div>
+
+      <div class="ing-divider">
+        <div class="ing-divider-label">What you will need for garnish</div>
+      </div>
+      <div class="ing-row">
+        <div class="ing-item">
+          <div class="ing-item-circle">
+            <img src="./Icons/Caramelized Onions & Cashews.png" alt="" height="50" width="50">
+          </div>
+          <div class="ing-item-name">Caramelized Onions &amp; Cashews</div>
+        </div>
+        <span class="ing-plus">+</span>
+        <div class="ing-item">
+          <div class="ing-item-circle">
+            <img src="./Icons/Boiled Eggs.png" alt="" height="50" width="50">
+          </div>
+          <div class="ing-item-name">Boiled Eggs</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- §3  STEPS -->
+  <div class="recipe-section">
+    <div class="section-eyebrow fade-up">The Method</div>
+    <h2 class="section-title fade-up d1">5 Simple <em>Steps</em></h2>
+    <div class="gold-line fade-up d2"></div>
+
+    <div class="steps-list">
+
+      <div class="step-row fade-up d1">
+        <div class="step-num-col"><div class="step-badge">1</div></div>
+        <div class="step-body">
+          <div class="step-body-title">Build the base</div>
+          <p class="step-body-text">Heat <strong>1 tbsp oil</strong> in a heavy pan. Add <strong>2 sliced onions</strong>, sauté for 5 mins until golden. Add <strong>2 chopped tomatoes</strong>, cook for another 5 mins.</p>
+          <p class="step-body-text">Stir in <strong>1.5 tbsp ginger-garlic paste</strong>, cook 5 mins, then fold in a generous handful of <strong>chopped mint and coriander leaves</strong>.</p>
+        </div>
+      </div>
+
+      <div class="step-row fade-up d2">
+        <div class="step-num-col"><div class="step-badge">2</div></div>
+        <div class="step-body">
+          <div class="step-body-title">Add RASA &amp; chicken</div>
+          <p class="step-body-text">Add <strong>RASA Earthen Spice powder</strong>, salt, and chicken. Sauté for <strong>5 minutes</strong> until the masala coats every piece evenly.</p>
+          <div class="step-variants">
+            <div class="step-variant">
+              <div class="step-variant-qty">1 kg chicken</div>
+              <div class="step-variant-detail">3 tbsp RASA + 1 tsp salt</div>
+            </div>
+            <div class="step-variant">
+              <div class="step-variant-qty">500 g chicken</div>
+              <div class="step-variant-detail">1.5 tbsp RASA + ½ tsp salt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-row fade-up d3">
+        <div class="step-num-col"><div class="step-badge">3</div></div>
+        <div class="step-body">
+          <div class="step-body-title">Simmer low &amp; slow</div>
+          <p class="step-body-text">Cover with a tight lid and simmer on <strong>low heat</strong> until the chicken is completely tender and cooked through.</p>
+          <div class="step-chips">
+            <span class="step-chip">⏱ <strong>500g</strong> — approx. 40 mins</span>
+            <span class="step-chip">⏱ <strong>1 kg</strong> — approx. 55 mins</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-row fade-up d4">
+        <div class="step-num-col"><div class="step-badge">4</div></div>
+        <div class="step-body">
+          <div class="step-body-title">Cook the rice separately</div>
+          <p class="step-body-text">Boil rice in salted water until just cooked, then drain completely before layering.</p>
+          <div class="step-variants">
+            <div class="step-variant">
+              <div class="step-variant-qty">1 kg chicken</div>
+              <div class="step-variant-detail">2½ cups rice · 2 tsp salt · 7 cups water</div>
+            </div>
+            <div class="step-variant">
+              <div class="step-variant-qty">500 g chicken</div>
+              <div class="step-variant-detail">1 cup rice · ¾ tsp salt · 3 cups water</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-row fade-up d5">
+        <div class="step-num-col"><div class="step-badge">5</div></div>
+        <div class="step-body">
+          <div class="step-body-title">Layer, close &amp; garnish</div>
+          <p class="step-body-text">Add cooked rice to the chicken pot. <strong>Close the lid</strong> and gently fold — do not stir vigorously or the rice will break.</p>
+          <p class="step-body-text">Finish with <strong>fried onions, boiled eggs, and fresh coriander</strong>. Serve straight from the pot.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- §4  CHEF'S TIP -->
+  <div class="recipe-section">
+    <div class="section-eyebrow fade-up">From the Kitchen</div>
+    <h2 class="section-title fade-up d1">Chef's <em>Tip</em></h2>
+    <div class="gold-line fade-up d1"></div>
+
+    <div class="tip-block fade-up d2">
+      <div class="tip-icon-wrap">👨‍🍳</div>
+      <div class="tip-content">
+        <div class="tip-eyebrow">Pro Tip</div>
+        <p class="tip-quote">"Garnish with fried onions, boiled eggs, and chopped coriander for a truly festive touch."</p>
+        <p class="tip-body">
+          <strong>Quick Fried Onions (Birista)</strong>
+          Sauté 3 thinly sliced onions in 2 tbsp oil over low heat for 15–20 minutes until soft and lightly golden. Add 2 tbsp sugar or jaggery with a pinch of salt. Toss in cashews and fry together for 5 more minutes until everything is deep golden and fragrant. These keep well and transform every biryani.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- §5  LIFESTYLE IMAGE -->
+  <!-- <div class="recipe-section">
+    <div class="section-eyebrow fade-up">A Meal Made for Sharing</div>
+
+    <div class="lifestyle-wrap fade-up d1">
+      <div class="lifestyle-img-block">
+        <span class="lifestyle-bg-icon">🍽️</span>
+        <div class="lifestyle-swap-note">Replace with family lifestyle photo</div>
+        <div class="lifestyle-overlay">
+          <div>
+            <p class="lifestyle-caption-text">"Every pot of biryani tells the story of the hands that made it."</p>
+            <p class="lifestyle-caption-sub">RASA — Flavor. Made Simple.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+  <!-- §6  PRODUCT SHOWCASE -->
+  <div class="recipe-section" style="padding-bottom:0; border-bottom:none;">
+    <div class="section-eyebrow fade-up">The Blend</div>
+    <h2 class="section-title fade-up d1">What makes it <em>RASA</em></h2>
+    <div class="gold-line fade-up d1"></div>
+
+    <div class="showcase-block">
+      <div class="showcase-img-col fade-up">
+        <div class="showcase-product-img">
+          <div class="showcase-steam-wrap">
+            <div class="steam-strand"></div>
+            <div class="steam-strand"></div>
+            <div class="steam-strand"></div>
+          </div>
+          <span class="showcase-product-emoji">🫕</span>
+          <div class="showcase-round-badge">RASA<br>Spice<br>Blend</div>
+        </div>
+      </div>
+
+      <div class="showcase-text-col fade-up d2">
+        <div class="section-eyebrow">The Blend Behind the Dish</div>
+        <h2 class="section-title">Earthen Spice<br><em>Chicken Biryani</em></h2>
+        <div class="gold-line"></div>
+
+        <p class="showcase-desc">Hand-selected whole spices, slow-ground to perfection. No artificial colours, no preservatives — only the honest warmth of Indian tradition, bottled for your kitchen.</p>
+
+        <div class="showcase-specs">
+          <div class="spec-row">
+            <span class="spec-label">Net Weight</span>
+            <span class="spec-value">70g</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Type</span>
+            <span class="spec-value">Biryani Masala Blend</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Preservatives</span>
+            <span class="spec-value">None — 100% Natural</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Available At</span>
+            <span class="spec-value">Blinkit</span>
+          </div>
+        </div>
+
+        <a class="btn-primary" href="https://blinkit.com" target="_blank">Buy on Blinkit →</a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /recipe-body -->
+
+
+<script>
+(function () {
+  const els = document.querySelectorAll('.fade-up');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {
+      el.classList.add('visible');
+    } else {
+      io.observe(el);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
