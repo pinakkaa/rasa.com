@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Earthen Spice Chicken Biryani — RASA</title>
+<title>Festive Roast Chicken — RASA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared.css">
@@ -225,21 +225,21 @@ body::before {
   justify-content: center;
 }
 .recipe-hero-card {
-  width: 260px;
+  width: 290px;
   background: var(--deep-brown);
   border-radius: 2px 2px 0 0;
   overflow: hidden;
   position: relative;
 }
 .recipe-hero-card-top {
-  height: 260px;
+  height: 280px;
   /* background: linear-gradient(160deg, #3D2010 0%, #1A0E08 100%); */
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  background-image: url(./Images/Chicken\ Biryani.png);
+  background-image: url(./Images/Roast\ Chicken.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -534,6 +534,24 @@ body::before {
   line-height: 1.6;
   opacity: 0.72;
 }
+
+/* Alert / Note callout */
+.step-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(198,166,70,0.08);
+  border: 1px solid rgba(198,166,70,0.2);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 2px 2px 0;
+  padding: 12px 16px;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--text-brown);
+  font-weight: 400;
+  line-height: 1.6;
+}
+.step-alert strong { color: var(--gold); font-weight: 600; }
 
 /* Time chips */
 .step-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
@@ -830,6 +848,10 @@ body::before {
 </head>
 <body>
 
+  <!-- ════════════════════════════════════
+       NAVBAR — exact copy from your file
+  ════════════════════════════════════ -->
+
   <nav id="navbar">
     <a class="nav-logo" href="../index.html">
       <img src="../logo.png" alt="Logo" class="nav-logo" />
@@ -878,306 +900,264 @@ body::before {
       <span></span>
     </button>
   </nav>
-<!-- ══════════════════════════════════
-     §1  HERO
-══════════════════════════════════ -->
-<div class="recipe-hero">
-  <div class="recipe-hero-bg"></div>
-  <div class="recipe-hero-inner">
-
-    <div class="recipe-hero-text">
-      <div class="recipe-hero-tag fade-up">Signature Recipe</div>
-      <h1 class="recipe-hero-title fade-up d1">
-        RASA – Earthen Spice<br><em>Chicken Biryani</em>
-      </h1>
-      <p class="recipe-hero-desc fade-up d2">
-        A celebration in every grain. Slow-simmered chicken layered with fragrant rice and the deep warmth of the RASA blend — the soul of a traditional earthen pot, made effortless.
-      </p>
-      <div class="recipe-hero-stats fade-up d3">
-        <div>
-          <span class="hero-stat-label">Prep Time</span>
-          <span class="hero-stat-value">30 min</span>
-        </div>
-        <div>
-          <span class="hero-stat-label">Cook Time</span>
-          <span class="hero-stat-value">55–90 min</span>
-        </div>
-        <div>
-          <span class="hero-stat-label">Serves</span>
-          <span class="hero-stat-value">4–6 people</span>
-        </div>
-        <div>
-          <span class="hero-stat-label">Difficulty</span>
-          <span class="hero-stat-value">Simple</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="recipe-hero-visual">
-      <div class="recipe-hero-card fade-up d2">
-        <div class="recipe-hero-card-top">
-          <div class="steam-wrap">
-            <div class="steam-strand"></div>
-            <div class="steam-strand"></div>
-            <div class="steam-strand"></div>
-          </div>
-          <div class="recipe-hero-card-badge">RASA Blend</div>
-          <span class="recipe-hero-card-emoji"></span>
-        </div>
-        <div class="recipe-hero-card-body">
-          <div class="recipe-hero-card-eyebrow">Earthen Spice</div>
-          <div class="recipe-hero-card-name">Chicken Biryani</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
 
 
-<!-- ══════════════════════════════════
-     BODY
-══════════════════════════════════ -->
-<div class="recipe-body">
+  <!-- ════════════════════════════════════
+       §1  HERO  ← UPDATED CONTENT
+  ════════════════════════════════════ -->
+  <div class="recipe-hero">
+    <div class="recipe-hero-bg"></div>
+    <div class="recipe-hero-inner">
 
-  <!-- §2  INGREDIENTS -->
-  <div class="recipe-section">
-    <div class="section-eyebrow fade-up">Ingredients</div>
-    <h2 class="section-title fade-up d1">What you will <em>need</em></h2>
-    <div class="gold-line fade-up d2"></div>
-
-    <div class="ing-card fade-up d2">
-
-      <div class="ing-group-label">Main Ingredients</div>
-      <div class="ing-row">
-        <div class="ing-item">
-          <div class="ing-item-circle">
-            <img src="./Icons/onion.png" alt="" height="50" width="50">
-          </div>
-          <div class="ing-item-name">Sliced Onions</div>
-        </div>
-        <span class="ing-plus">+</span>
-        <div class="ing-item">
-          <div class="ing-item-circle">
-            <img src="./Icons/tomatoes.png" alt="" height="50" width="50">
-          </div>
-          <div class="ing-item-name">Diced Tomatoes</div>
-        </div>
-        <span class="ing-plus">+</span>
-        <div class="ing-item">
-          <div class="ing-item-circle">
-            <img src="./Icons/garlic.png" alt="" height="50" width="50">
-          </div>
-          <div class="ing-item-name">Ginger Garlic Paste</div>
-        </div>
-        <span class="ing-plus">+</span>
-        <div class="ing-item">
-          <div class="ing-item-circle">
-            <img src="./Icons/Coriander.png" alt="" height="50" width="50">
-          </div>
-          <div class="ing-item-name">Chopped Coriander</div>
-        </div>
-        <span class="ing-plus">+</span>
-        <div class="ing-item">
-          <div class="ing-item-circle">
-            <img src="./Icons/Mint-Leaves.png" alt="" height="50" width="50">
-          </div>
-          <div class="ing-item-name">Chopped Mint Leaves</div>
-        </div>
-      </div>
-
-      <div class="ing-divider">
-        <div class="ing-divider-label">What you will need for garnish</div>
-      </div>
-      <div class="ing-row">
-        <div class="ing-item">
-          <div class="ing-item-circle">
-            <img src="./Icons/Caramelized Onions & Cashews.png" alt="" height="50" width="50">
-          </div>
-          <div class="ing-item-name">Caramelized Onions &amp; Cashews</div>
-        </div>
-        <span class="ing-plus">+</span>
-        <div class="ing-item">
-          <div class="ing-item-circle">
-            <img src="./Icons/Boiled Eggs.png" alt="" height="50" width="50">
-          </div>
-          <div class="ing-item-name">Boiled Eggs</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- §3  STEPS -->
-  <div class="recipe-section">
-    <div class="section-eyebrow fade-up">The Method</div>
-    <h2 class="section-title fade-up d1">5 Simple <em>Steps</em></h2>
-    <div class="gold-line fade-up d2"></div>
-
-    <div class="steps-list">
-
-      <div class="step-row fade-up d1">
-        <div class="step-num-col"><div class="step-badge">1</div></div>
-        <div class="step-body">
-          <div class="step-body-title">Build the base</div>
-          <p class="step-body-text">Heat <strong>1 tbsp oil</strong> in a heavy pan. Add <strong>2 sliced onions</strong>, sauté for 5 mins until golden. Add <strong>2 chopped tomatoes</strong>, cook for another 5 mins.</p>
-          <p class="step-body-text">Stir in <strong>1.5 tbsp ginger-garlic paste</strong>, cook 5 mins, then fold in a generous handful of <strong>chopped mint and coriander leaves</strong>.</p>
-        </div>
-      </div>
-
-      <div class="step-row fade-up d2">
-        <div class="step-num-col"><div class="step-badge">2</div></div>
-        <div class="step-body">
-          <div class="step-body-title">Add RASA &amp; chicken</div>
-          <p class="step-body-text">Add <strong>RASA Earthen Spice powder</strong>, salt, and chicken. Sauté for <strong>5 minutes</strong> until the masala coats every piece evenly.</p>
-          <div class="step-variants">
-            <div class="step-variant">
-              <div class="step-variant-qty">1 kg chicken</div>
-              <div class="step-variant-detail">3 tbsp RASA + 1 tsp salt</div>
-            </div>
-            <div class="step-variant">
-              <div class="step-variant-qty">500 g chicken</div>
-              <div class="step-variant-detail">1.5 tbsp RASA + ½ tsp salt</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-row fade-up d3">
-        <div class="step-num-col"><div class="step-badge">3</div></div>
-        <div class="step-body">
-          <div class="step-body-title">Simmer low &amp; slow</div>
-          <p class="step-body-text">Cover with a tight lid and simmer on <strong>low heat</strong> until the chicken is completely tender and cooked through.</p>
-          <div class="step-chips">
-            <span class="step-chip">⏱ <strong>500g</strong> — approx. 40 mins</span>
-            <span class="step-chip">⏱ <strong>1 kg</strong> — approx. 55 mins</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-row fade-up d4">
-        <div class="step-num-col"><div class="step-badge">4</div></div>
-        <div class="step-body">
-          <div class="step-body-title">Cook the rice separately</div>
-          <p class="step-body-text">Boil rice in salted water until just cooked, then drain completely before layering.</p>
-          <div class="step-variants">
-            <div class="step-variant">
-              <div class="step-variant-qty">1 kg chicken</div>
-              <div class="step-variant-detail">2½ cups rice · 2 tsp salt · 7 cups water</div>
-            </div>
-            <div class="step-variant">
-              <div class="step-variant-qty">500 g chicken</div>
-              <div class="step-variant-detail">1 cup rice · ¾ tsp salt · 3 cups water</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-row fade-up d5">
-        <div class="step-num-col"><div class="step-badge">5</div></div>
-        <div class="step-body">
-          <div class="step-body-title">Layer, close &amp; garnish</div>
-          <p class="step-body-text">Add cooked rice to the chicken pot. <strong>Close the lid</strong> and gently fold — do not stir vigorously or the rice will break.</p>
-          <p class="step-body-text">Finish with <strong>fried onions, boiled eggs, and fresh coriander</strong>. Serve straight from the pot.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- §4  CHEF'S TIP -->
-  <div class="recipe-section">
-    <div class="section-eyebrow fade-up">From the Kitchen</div>
-    <h2 class="section-title fade-up d1">Chef's <em>Tip</em></h2>
-    <div class="gold-line fade-up d1"></div>
-
-    <div class="tip-block fade-up d2">
-      <div class="tip-icon-wrap">👨‍🍳</div>
-      <div class="tip-content">
-        <div class="tip-eyebrow">Pro Tip</div>
-        <p class="tip-quote">"Garnish with fried onions, boiled eggs, and chopped coriander for a truly festive touch."</p>
-        <p class="tip-body">
-          <strong>Quick Fried Onions (Birista)</strong>
-          Sauté 3 thinly sliced onions in 2 tbsp oil over low heat for 15–20 minutes until soft and lightly golden. Add 2 tbsp sugar or jaggery with a pinch of salt. Toss in cashews and fry together for 5 more minutes until everything is deep golden and fragrant. These keep well and transform every biryani.
+      <div class="recipe-hero-text">
+        <div class="recipe-hero-tag fade-up">Signature Recipe</div>
+        <h1 class="recipe-hero-title fade-up d1">
+          RASA – Festive<br><em>Roast Chicken</em>
+        </h1>
+        <p class="recipe-hero-desc fade-up d2">
+          Golden, aromatic, impossibly tender. A whole chicken slow-cooked with the bold warmth of RASA — no babysitting required. Set it, go relax, and come back to something magnificent.
         </p>
+        <div class="recipe-hero-stats fade-up d3">
+          <div>
+            <span class="hero-stat-label">Prep Time</span>
+            <span class="hero-stat-value">10 min</span>
+          </div>
+          <div>
+            <span class="hero-stat-label">Cook Time</span>
+            <span class="hero-stat-value">40–55 min</span>
+          </div>
+          <div>
+            <span class="hero-stat-label">Serves</span>
+            <span class="hero-stat-value">4–6 people</span>
+          </div>
+          <div>
+            <span class="hero-stat-label">Difficulty</span>
+            <span class="hero-stat-value">Simple</span>
+          </div>
+        </div>
       </div>
+
+      <div class="recipe-hero-visual">
+        <div class="recipe-hero-card fade-up d2">
+          <div class="recipe-hero-card-top">
+            <div class="steam-wrap">
+              <div class="steam-strand"></div>
+              <div class="steam-strand"></div>
+              <div class="steam-strand"></div>
+            </div>
+            <div class="recipe-hero-card-badge">RASA Blend</div>
+            <span class="recipe-hero-card-emoji"></span>
+          </div>
+          <div class="recipe-hero-card-body">
+            <div class="recipe-hero-card-eyebrow">Friyay</div>
+            <div class="recipe-hero-card-name">Festive Roast Chicken</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
 
-  <!-- §5  LIFESTYLE IMAGE -->
-  <!-- <div class="recipe-section">
-    <div class="section-eyebrow fade-up">A Meal Made for Sharing</div>
+  <!-- ════════════════════════════════════
+       BODY ← UPDATED CONTENT
+  ════════════════════════════════════ -->
+  <div class="recipe-body">
 
-    <div class="lifestyle-wrap fade-up d1">
-      <div class="lifestyle-img-block">
-        <span class="lifestyle-bg-icon">🍽️</span>
-        <div class="lifestyle-swap-note">Replace with family lifestyle photo</div>
-        <div class="lifestyle-overlay">
-          <div>
-            <p class="lifestyle-caption-text">"Every pot of biryani tells the story of the hands that made it."</p>
-            <p class="lifestyle-caption-sub">RASA — Flavor. Made Simple.</p>
+    <!-- §2  INGREDIENTS -->
+    <div class="recipe-section">
+      <div class="section-eyebrow fade-up">Ingredients</div>
+      <h2 class="section-title fade-up d1">What you will <em>need</em></h2>
+      <div class="gold-line fade-up d2"></div>
+
+      <div class="ing-card fade-up d2">
+
+        <div class="ing-group-label">Main Ingredients</div>
+        <div class="ing-row">
+
+          <div class="ing-item">
+            <div class="ing-item-circle">
+              <img src="./Icons/chicken.png" alt="" height="50" width="50">
+            </div>
+            <div class="ing-item-name">Whole Cleaned Chicken</div>
           </div>
+          <span class="ing-plus">+</span>
+
+          <div class="ing-item">
+            <div class="ing-item-circle">
+              <img src="./Icons/garlic.png" alt="" height="50" width="50">
+            </div>
+            <div class="ing-item-name">Ginger, Garlic Paste</div>
+          </div>
+          <span class="ing-plus">+</span>
+
+          <div class="ing-item">
+            <div class="ing-item-circle">
+              <img src="./Icons/onion.png" alt="" height="50" width="50">
+            </div>
+            <div class="ing-item-name">Peeled Halved Onions</div>
+          </div>
+          <span class="ing-plus">+</span>
+
+          <div class="ing-item">
+            <div class="ing-item-circle">
+              <img src="./Icons/Peeled Halved Potatoes.png" alt="" height="50" width="50">
+            </div>
+            <div class="ing-item-name">Peeled Halved Potatoes</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- §3  STEPS -->
+    <div class="recipe-section">
+      <div class="section-eyebrow fade-up">The Method</div>
+      <h2 class="section-title fade-up d1">5 Simple <em>Steps</em></h2>
+      <div class="gold-line fade-up d2"></div>
+
+      <div class="steps-list">
+
+        <div class="step-row fade-up d1">
+          <div class="step-num-col"><div class="step-badge">1</div></div>
+          <div class="step-body">
+            <div class="step-body-title">Prepare the chicken</div>
+            <p class="step-body-text">Add washed chicken to a pot — use a <strong>whole chicken</strong> or pieces of your choice.</p>
+          </div>
+        </div>
+
+        <div class="step-row fade-up d2">
+          <div class="step-num-col"><div class="step-badge">2</div></div>
+          <div class="step-body">
+            <div class="step-body-title">Poke &amp; open it up</div>
+            <p class="step-body-text">Gently <strong>poke the chicken all over with a fork</strong>. This allows the RASA spices to penetrate deep into the meat for maximum flavour.</p>
+            <div class="step-alert">
+              <strong>Note:&nbsp;</strong>Put the fork into the whole chicken cavity and turn with ease to reach all sides.
+            </div>
+          </div>
+        </div>
+
+        <div class="step-row fade-up d3">
+          <div class="step-num-col"><div class="step-badge">3</div></div>
+          <div class="step-body">
+            <div class="step-body-title">Rub in RASA &amp; salt</div>
+            <p class="step-body-text">Rub <strong>RASA Festive Roast Chicken powder</strong> and salt all over the chicken — inside and out — until every surface is evenly coated.</p>
+            <div class="step-variants">
+              <div class="step-variant">
+                <div class="step-variant-qty">1 kg chicken</div>
+                <div class="step-variant-detail">3 tbsp RASA + 1 tsp salt</div>
+              </div>
+              <div class="step-variant">
+                <div class="step-variant-qty">500 g chicken</div>
+                <div class="step-variant-detail">1.5 tbsp RASA + ½ tsp salt</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-row fade-up d4">
+          <div class="step-num-col"><div class="step-badge">4</div></div>
+          <div class="step-body">
+            <div class="step-body-title">Add the aromatics</div>
+            <p class="step-body-text">Add <strong>1 tbsp ginger-garlic paste</strong>, <strong>1 tbsp oil</strong>, <strong>peeled halved onions</strong>, and <strong>peeled halved potatoes</strong> to the pot alongside the chicken.</p>
+          </div>
+        </div>
+
+        <div class="step-row fade-up d5">
+          <div class="step-num-col"><div class="step-badge">5</div></div>
+          <div class="step-body">
+            <div class="step-body-title">Cover, simmer &amp; relax</div>
+            <p class="step-body-text"><strong>Cover with a lid</strong> and simmer on low until the chicken is completely tender. Turn the whole chicken once at the halfway mark to evenly distribute cooking.</p>
+            <p class="step-body-text"><strong>No babysitting — go relax.</strong> When oil rises in the pot, your aromatic roast chicken is ready.</p>
+            <div class="step-chips">
+              <span class="step-chip">⏱ <strong>500g</strong> — approx. 40 mins</span>
+              <span class="step-chip">⏱ <strong>1 kg</strong> — approx. 55 mins</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- §4  CHEF'S TIP -->
+    <div class="recipe-section">
+      <div class="section-eyebrow fade-up">From the Kitchen</div>
+      <h2 class="section-title fade-up d1">Chef's <em>Tip</em></h2>
+      <div class="gold-line fade-up d1"></div>
+
+      <div class="tip-block fade-up d2">
+        <div class="tip-icon-wrap">👨‍🍳</div>
+        <div class="tip-content">
+          <div class="tip-eyebrow">Pro Tip</div>
+          <p class="tip-quote">"When oil rises in the pot, your aromatic roast chicken is ready."</p>
+          <p class="tip-body">
+            The rising oil is your signal — it means all the moisture has cooked off and the chicken is perfectly done, fragrant, and beautifully golden. Resist lifting the lid too early; the sealed steam is what keeps the chicken tender throughout. The potatoes and onions will have soaked up all the RASA spice and become a rich, flavourful side in themselves.
+          </p>
         </div>
       </div>
     </div>
-  </div> -->
 
 
-  <!-- §6  PRODUCT SHOWCASE -->
-  <!-- <div class="recipe-section" style="padding-bottom:0; border-bottom:none;">
-    <div class="section-eyebrow fade-up">The Blend</div>
-    <h2 class="section-title fade-up d1">What makes it <em>RASA</em></h2>
-    <div class="gold-line fade-up d1"></div>
+    <!-- §5  PRODUCT SHOWCASE -->
+    <!-- <div class="recipe-section" style="padding-bottom:0; border-bottom:none;">
+      <div class="section-eyebrow fade-up">The Blend</div>
+      <h2 class="section-title fade-up d1">What makes it <em>RASA</em></h2>
+      <div class="gold-line fade-up d1"></div>
 
-    <div class="showcase-block">
-      <div class="showcase-img-col fade-up">
-        <div class="showcase-product-img">
-          <div class="showcase-steam-wrap">
-            <div class="steam-strand"></div>
-            <div class="steam-strand"></div>
-            <div class="steam-strand"></div>
-          </div>
-          <span class="showcase-product-emoji">🫕</span>
-          <div class="showcase-round-badge">RASA<br>Spice<br>Blend</div>
-        </div>
-      </div>
-
-      <div class="showcase-text-col fade-up d2">
-        <div class="section-eyebrow">The Blend Behind the Dish</div>
-        <h2 class="section-title">Earthen Spice<br><em>Chicken Biryani</em></h2>
-        <div class="gold-line"></div>
-
-        <p class="showcase-desc">Hand-selected whole spices, slow-ground to perfection. No artificial colours, no preservatives — only the honest warmth of Indian tradition, bottled for your kitchen.</p>
-
-        <div class="showcase-specs">
-          <div class="spec-row">
-            <span class="spec-label">Net Weight</span>
-            <span class="spec-value">70g</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-label">Type</span>
-            <span class="spec-value">Biryani Masala Blend</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-label">Preservatives</span>
-            <span class="spec-value">None — 100% Natural</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-label">Available At</span>
-            <span class="spec-value">Blinkit</span>
+      <div class="showcase-block">
+        <div class="showcase-img-col fade-up">
+          <div class="showcase-product-img">
+            <div class="showcase-steam-wrap">
+              <div class="steam-strand"></div>
+              <div class="steam-strand"></div>
+              <div class="steam-strand"></div>
+            </div>
+            <span class="showcase-product-emoji">🍗</span>
+            <div class="showcase-round-badge">RASA<br>Spice<br>Blend</div>
           </div>
         </div>
 
-        <a class="btn-primary" href="https://blinkit.com" target="_blank">Buy on Blinkit →</a>
-      </div>
-    </div>
-  </div> -->
+        <div class="showcase-text-col fade-up d2">
+          <div class="section-eyebrow">The Blend Behind the Dish</div>
+          <h2 class="section-title">Friyay —<br><em>Festive Roast Chicken</em></h2>
+          <div class="gold-line"></div>
 
-</div><!-- /recipe-body -->
-    
+          <p class="showcase-desc">Bold, celebratory roast flavours crafted for the weekend table. Aromatic whole spices slow-ground to bring out maximum depth. No artificial colours, no preservatives — just pure, honest spice.</p>
+
+          <div class="showcase-specs">
+            <div class="spec-row">
+              <span class="spec-label">Net Weight</span>
+              <span class="spec-value">70g</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Type</span>
+              <span class="spec-value">Chicken Roast Masala</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Preservatives</span>
+              <span class="spec-value">None — 100% Natural</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Available At</span>
+              <span class="spec-value">Blinkit</span>
+            </div>
+          </div>
+
+          <a class="btn-primary" href="https://blinkit.com" target="_blank">Buy on Blinkit →</a>
+        </div>
+      </div>
+    </div> -->
+
+  </div><!-- /recipe-body -->
+
+
+  <!-- ════════════════════════════════════
+       FOOTER — exact copy from your file
+  ════════════════════════════════════ -->
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
